@@ -1,6 +1,6 @@
 <meta charset=utf-8 />
 <div class="container" id="converter-container">
-  <div class="row">
+  <div class="row" id="source-curr-row">
     <div class="one column"></div>
     <!-- This is where the input for the source currency will be taken in. -->
     <div class="five columns">
@@ -17,11 +17,28 @@
     </div>
     <div class="one column"></div>
   </div>
-  <div class="row">
+  <div class="row" id="switch-button-row">
     <div class="one column"></div>
     <!-- This is where the button will be placed. This button will switch the two currencies. -->
     <div class="ten columns">
       <input class="button-primary" id="switch-button" type="button" value="&uarr; &darr;">
+    </div>
+    <div class="one column"></div>
+  </div>
+  <div class="row" id="dest-curr-row">
+    <div class="one column"></div>
+    <!-- This is where the input for the destination(lack of a better word) currency will be taken in. -->
+    <div class="five columns">
+      <label for="dest-currency">Convert to:</label>
+      <select class="u-full-width" id="dest-currency">
+        <option value="Option 1">United States Dollar(USD)</option>
+        <option value="Option 2">Euro (EUR)</option>
+        <option value="Option 3">Japanese Yen (JPY)</option>
+      </select>
+    </div>
+    <div class="five columns">
+      <label for="dest-currency-value">Converted value:</label>
+      <input class="u-full-width" id="dest-currency-value" type="number" readonly/>
     </div>
     <div class="one column"></div>
   </div>
