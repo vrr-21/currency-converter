@@ -1,0 +1,14 @@
+#converter-container
+{
+  padding-top: 20px;
+}
+#switch-button
+{
+  display:block;
+  margin: 0 auto;
+  font-size: 15pt;
+}
+#dest-curr-row
+{
+  padding-top: 10px;
+}
