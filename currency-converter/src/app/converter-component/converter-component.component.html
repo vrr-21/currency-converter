@@ -1,3 +1,19 @@
-<p>
-  converter-component works!
-</p>
+<div class="container" id="converter-container">
+  <div class="row">
+    <div class="one column"></div>
+    <!-- This is where the input for the source currency will be taken in -->
+    <div class="five columns">
+      <label for="source-currency">Convert from:</label>
+      <select class="u-full-width" id="source-currency">
+        <option value="Option 1">United States Dollar(USD)</option>
+        <option value="Option 2">Euro (EUR)</option>
+        <option value="Option 3">Japanese Yen (JPY)</option>
+      </select>
+    </div>
+    <div class="five columns">
+      <label for="source-currency-value">Value:</label>
+      <input class="u-full-width" id="source-currency-value" type="number" placeholder="0.0"/>
+    </div>
+    <div class="one column"></div>
+  </div>
+</div>
