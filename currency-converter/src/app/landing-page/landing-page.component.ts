@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component'
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -11,5 +11,5 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {
   }
-  title = AppComponent.title
+  title = 'Currency Converter';
 }
