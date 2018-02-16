@@ -13,7 +13,7 @@
     </div>
     <div class="five columns">
       <label for="source-currency-value">Value:</label>
-      <input class="u-full-width" id="source-currency-value" type="number" placeholder="0.0"/>
+      <input class="u-full-width" id="source-currency-value" [(ngModel)]="s_c_value" (ngModelChange)="convertValue()" type="number" placeholder="0.0"/>
     </div>
     <div class="one column"></div>
   </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="five columns">
       <label for="dest-currency-value">Converted value:</label>
-      <input class="u-full-width" id="dest-currency-value" type="number" readonly/>
+      <input class="u-full-width" id="dest-currency-value" [(ngModel)]="d_c_value" type="number" readonly/>
     </div>
     <div class="one column"></div>
   </div>
