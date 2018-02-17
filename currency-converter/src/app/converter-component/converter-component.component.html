@@ -6,9 +6,7 @@
     <div class="five columns">
       <label for="source-currency">Convert from:</label>
       <select class="u-full-width" id="source-currency">
-        <option value="Option 1">United States Dollar(USD)</option>
-        <option value="Option 2">Euro (EUR)</option>
-        <option value="Option 3">Japanese Yen (JPY)</option>
+        <option *ngFor="let currency of currencies" >{{currency.name}}({{currency.code}})</option>
       </select>
     </div>
     <div class="five columns">
@@ -31,9 +29,7 @@
     <div class="five columns">
       <label for="dest-currency">Convert to:</label>
       <select class="u-full-width" id="dest-currency">
-        <option value="Option 1">United States Dollar(USD)</option>
-        <option value="Option 2">Euro (EUR)</option>
-        <option value="Option 3">Japanese Yen (JPY)</option>
+        <option *ngFor="let currency of currencies" >{{currency.name}}({{currency.code}})</option>
       </select>
     </div>
     <div class="five columns">
