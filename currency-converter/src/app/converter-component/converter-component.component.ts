@@ -11,26 +11,30 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrCodeServiceService } from '../curr-code-service.service';
 import { Currency } from '../currency'
+import { CurrRatesService } from '../curr-rates.service';
+
 @Component({
   selector: 'app-converter-component',
   templateUrl: './converter-component.component.html',
   styleUrls: ['./converter-component.component.css']
 })
 export class ConverterComponentComponent implements OnInit {
-  s_c_curr: string;
+  s_c_curr: Currency;
   s_c_value: number;
-  d_c_curr: string;
+  d_c_curr: Currency;
   d_c_value: number;
-  currencies: Currency[];
-  constructor(private currency_code_service: CurrCodeServiceService)
+  currencies: Currency[] = [];
+  currency_rates: object;
+
+  constructor(private currency_code_service: CurrCodeServiceService, private currency_rate_service: CurrRatesService)
   {
     this.s_c_value=0;
     this.d_c_value=this.s_c_value;
-    this.currencies=[];
   }
 
   ngOnInit() {
     this.getCurrencyCodes()
+    this.getCurrencyRates()
   }
 
   getCurrencyCodes(): void
@@ -49,12 +53,34 @@ export class ConverterComponentComponent implements OnInit {
                                this.currencies.push(new Currency(result[Object.keys(result)[i]].code,result[Object.keys(result)[i]].name))
                              });
   }
+
+  getCurrencyRates(): void
+  {
+    /**
+    * This code gets the currency rates from the CurrRatesService, and
+    * puts them into the currencies array.
+    *
+    * @param None
+    * @return None
+    */
+    this.currency_rate_service.loadCurrencyRates()
+                              .subscribe(result => this.currency_rates = result.rates);
+  }
   convertValue(): void
   {
-    /*
-      TODO: change the function cause this is WRONG.
+    /**
+    * This function, as the name suggests, converts!
+    * It takes the source currency, destination currency, and the source value, and uses the Currency class function
+    * to get the rates.
+    * Then it uses a formula to derive the rate:
+    *
+    * rate[s_c_curr->d_c_curr]=((1/rate[USD->s_c_curr])*rate[USD->d_c_curr])
+    * Thus, we only use one base currency, and calculate the rate between *any* two currencies.
+    *
+    * @param None
+    * @return None 
     */
-    this.d_c_value=this.s_c_value*61;
+    this.d_c_value=((1/this.s_c_curr.getRate(this.currency_rates))*this.d_c_curr.getRate(this.currency_rates))*this.s_c_value;
   }
 
 

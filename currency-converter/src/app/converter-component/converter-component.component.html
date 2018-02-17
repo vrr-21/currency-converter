@@ -5,8 +5,8 @@
     <!-- This is where the input for the source currency will be taken in. -->
     <div class="five columns">
       <label for="source-currency">Convert from:</label>
-      <select class="u-full-width" id="source-currency">
-        <option *ngFor="let currency of currencies" >{{ currency.name }}({{ currency.code }})</option>
+      <select class="u-full-width" id="source-currency" [(ngModel)]="s_c_curr" (ngModelChange)="convertValue()">
+        <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency.name }}({{ currency.code }})</option>
       </select>
     </div>
     <div class="five columns">
@@ -28,8 +28,8 @@
     <!-- This is where the input for the destination(lack of a better word) currency will be taken in. -->
     <div class="five columns">
       <label for="dest-currency">Convert to:</label>
-      <select class="u-full-width" id="dest-currency">
-        <option *ngFor="let currency of currencies" >{{ currency.name }}({{ currency.code }})</option>
+      <select class="u-full-width" id="dest-currency" [(ngModel)]="d_c_curr" (ngModelChange)="convertValue()">
+        <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency.name }}({{ currency.code }})</option>
       </select>
     </div>
     <div class="five columns">
