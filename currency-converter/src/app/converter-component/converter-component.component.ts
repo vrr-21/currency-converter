@@ -1,3 +1,13 @@
+/**
+* This is the converter-component.
+* It views the currency converter; the crux of the whole application.
+* The ConverterComponentComponent class fetches the JSON data from the CurrCodeServiceService service to get all the
+* currency codes and names. It also performs the conversion.
+*
+* @author Varun Rao
+* @version 1.0
+* @since 16-02-2017
+*/
 import { Component, OnInit } from '@angular/core';
 import { CurrCodeServiceService } from '../curr-code-service.service';
 import { Currency } from '../currency'
@@ -25,6 +35,13 @@ export class ConverterComponentComponent implements OnInit {
 
   getCurrencyCodes(): void
   {
+      /**
+      * This code gets the currency codes from the CurrCodeServiceService, and
+      * puts them into the currencies array.
+      *
+      * @param None
+      * @return None
+      */
       this.currency_code_service.loadCurrencyCodes()
                            .subscribe(result =>
                              for(var i=0;i<Object.keys(result).length;i++)
