@@ -1,3 +1,7 @@
+/*
+  This service fetches data from a local JSON file and passes into an observable.
+  Source of the JSON file: https://gist.github.com/Fluidbyte/2973986
+*/
 import { Injectable } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
