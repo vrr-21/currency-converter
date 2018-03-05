@@ -47,11 +47,11 @@ export class ConverterComponentComponent implements OnInit {
       * @return None
       */
       this.currency_code_service.loadCurrencyCodes()
-                           .subscribe(result =>
+                           .subscribe(result =>{
                              for(var i=0;i<Object.keys(result).length;i++)
                              {
                                this.currencies.push(new Currency(result[Object.keys(result)[i]].code,result[Object.keys(result)[i]].name))
-                             });
+                             }});
   }
 
   getCurrencyRates(): void
@@ -66,6 +66,16 @@ export class ConverterComponentComponent implements OnInit {
     this.currency_rate_service.loadCurrencyRates()
                               .subscribe(result => this.currency_rates = result.rates);
   }
+
+  switchCurrencies(): void
+  {
+      
+      let inter_curr = this.s_c_curr;
+      this.s_c_curr = this.d_c_curr;
+      this.d_c_curr = inter_curr;
+      this.convertValue();
+  }
+
   convertValue(): void
   {
     /**
