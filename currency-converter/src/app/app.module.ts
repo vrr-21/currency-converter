@@ -8,6 +8,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ConverterComponentComponent } from './converter-component/converter-component.component';
 import { CurrentRatesComponentComponent } from './current-rates-component/current-rates-component.component';
 import { CurrCodeServiceService } from './curr-code-service.service';
+import { CurrRatesService } from './curr-rates.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { CurrCodeServiceService } from './curr-code-service.service';
     FormsModule,
     HttpModule
   ],
-  providers: [CurrCodeServiceService],
+  providers: [CurrCodeServiceService, CurrRatesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,13 +5,13 @@
     <!-- This is where the input for the source currency will be taken in. -->
     <div class="five columns">
       <label for="source-currency">Convert from:</label>
-      <select class="u-full-width" id="source-currency">
-        <option *ngFor="let currency of currencies" >{{ currency.name }}({{ currency.code }})</option>
+      <select class="u-full-width" id="source-currency" [(ngModel)]="s_c_curr" (ngModelChange)="convertValue()">
+        <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency.name }} ({{ currency.code }})</option>
       </select>
     </div>
     <div class="five columns">
       <label for="source-currency-value">Value:</label>
-      <input class="u-full-width" id="source-currency-value" [(ngModel)]="s_c_value" (ngModelChange)="convertValue()" type="number" placeholder="0.0"/>
+      <input class="u-full-width" id="source-currency-value" [(ngModel)]="this.s_c_value" (ngModelChange)="convertValue()" type="number" placeholder="0.0"/>
     </div>
     <div class="one column"></div>
   </div>
@@ -19,7 +19,7 @@
     <div class="one column"></div>
     <!-- This is where the button will be placed. This button will switch the two currencies. -->
     <div class="ten columns">
-      <input class="button-primary" id="switch-button" type="button" value="&uarr; &darr;">
+      <input class="button-primary" id="switch-button" (click)="switchCurrencies()" type="button" value="&uarr; &darr;">
     </div>
     <div class="one column"></div>
   </div>
@@ -28,8 +28,8 @@
     <!-- This is where the input for the destination(lack of a better word) currency will be taken in. -->
     <div class="five columns">
       <label for="dest-currency">Convert to:</label>
-      <select class="u-full-width" id="dest-currency">
-        <option *ngFor="let currency of currencies" >{{ currency.name }}({{ currency.code }})</option>
+      <select class="u-full-width" id="dest-currency" [(ngModel)]="d_c_curr" (ngModelChange)="convertValue()">
+        <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency.name }} ({{ currency.code }})</option>
       </select>
     </div>
     <div class="five columns">

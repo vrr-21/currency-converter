@@ -12,4 +12,15 @@ export class Currency {
     this.code=code;
     this.name=name;
   }
+  getRate(rates: object): number
+  {
+    if(this.code == 'USD')
+    {
+        return 1;
+    }
+    else
+    {
+        return rates[this.code];
+    }
+  }
 }
