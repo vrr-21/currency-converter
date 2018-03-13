@@ -1,3 +1,19 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
-<app-landing-page></app-landing-page>
-<app-converter-component></app-converter-component>
+<div class="container">
+    <div class="row">
+        <div class="one column"></div>
+        <div class="eleven columns" id="title-holder-div"><h1>{{ title }}</h1></div>
+    </div>
+    <div class="row">
+        <div class="one column"></div>
+        <div class="eleven columns">
+            <ul>
+                <li><a href="/converter">Converter</a></li>
+                <li><a href="#">Historic rates</a></li>
+                <li><a href="#">Five Top Conversions</a></li>
+                <li><a href="#">Currency.wiki</a></li>
+                <li><a href="#">Developers</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

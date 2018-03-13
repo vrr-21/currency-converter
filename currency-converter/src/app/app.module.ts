@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -9,6 +9,7 @@ import { ConverterComponentComponent } from './converter-component/converter-com
 import { CurrentRatesComponentComponent } from './current-rates-component/current-rates-component.component';
 import { CurrCodeServiceService } from './curr-code-service.service';
 import { CurrRatesService } from './curr-rates.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -21,9 +22,14 @@ import { CurrRatesService } from './curr-rates.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [CurrCodeServiceService, CurrRatesService],
+  providers: [
+    CurrCodeServiceService,
+    CurrRatesService,
+    Title
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

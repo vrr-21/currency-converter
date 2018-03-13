@@ -69,7 +69,14 @@ export class ConverterComponentComponent implements OnInit {
 
   switchCurrencies(): void
   {
-      
+      /** 
+       * This function switches the two currencies.
+       * It will swap only the currencies, not the values. 
+       * After the currencies are swapped, the convertValue() is called so as to calculate the new currency value.
+       * 
+       * @param None
+       * @return None
+      */
       let inter_curr = this.s_c_curr;
       this.s_c_curr = this.d_c_curr;
       this.d_c_curr = inter_curr;
