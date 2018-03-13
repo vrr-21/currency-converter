@@ -9,6 +9,7 @@ import { ConverterComponentComponent } from './converter-component/converter-com
 import { CurrentRatesComponentComponent } from './current-rates-component/current-rates-component.component';
 import { CurrCodeServiceService } from './curr-code-service.service';
 import { CurrRatesService } from './curr-rates.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CurrRatesService } from './curr-rates.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [
     CurrCodeServiceService,
