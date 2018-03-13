@@ -6,14 +6,6 @@
       Here, you can find details about all currencies, including their ISO codes, the frequent and rare bank notes, their major and minor currency names. So on and so forth.
       <br /><br />
       So, on you go!
-      <!-- <div>
-        <label class="u-full-width" for="source-currency">Currency:</label>
-      </div>
-      <div>
-        <select class="u-full-width" id="source-currency">
-          <option>AAA</option>
-        </select>
-      </div> -->
     </div>
   </div>
   <div class="row" id="curr-wiki-choose-div">
@@ -23,7 +15,7 @@
     </div>
     <div class="ten columns">
       <select class="u-full-width" id="source-currency">
-        <option>AAA</option>
+        <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency.name }} ({{ currency.code }})</option>
       </select>
     </div>
   </div>
