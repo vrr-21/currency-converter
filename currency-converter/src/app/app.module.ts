@@ -10,6 +10,7 @@ import { CurrentRatesComponentComponent } from './current-rates-component/curren
 import { CurrCodeServiceService } from './curr-code-service.service';
 import { CurrRatesService } from './curr-rates.service';
 import { AppRoutingModule } from './/app-routing.module';
+import { CurrencyWikiComponent } from './currency-wiki/currency-wiki.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     LandingPageComponent,
     ConverterComponentComponent,
-    CurrentRatesComponentComponent
+    CurrentRatesComponentComponent,
+    CurrencyWikiComponent
   ],
   imports: [
     BrowserModule,
