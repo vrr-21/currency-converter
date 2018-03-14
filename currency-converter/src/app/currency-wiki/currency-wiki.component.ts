@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Currency } from '../currency';
 import { CurrCodeServiceService } from '../curr-code-service.service';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-currency-wiki',
@@ -19,9 +21,9 @@ export class CurrencyWikiComponent implements OnInit {
   chosen_currency_rare_cn: string;
   chosen_currency_flag_link: string;
 
-  constructor(private currency_code_service: CurrCodeServiceService)
+  constructor(private currency_code_service: CurrCodeServiceService, private route: ActivatedRoute, private location: Location)
   {
-
+    
   }
 
   ngOnInit()
@@ -34,16 +36,30 @@ export class CurrencyWikiComponent implements OnInit {
       /**
       * This code gets the currency codes from the CurrCodeServiceService, and
       * puts them into the currencies array.
+      * Also, this function will search for the parameter in the browser, the currency_code, and 
+      * set the appropriate selected_currency value.
       *
       * @param None
       * @return None
       */
       this.currency_code_service.loadCurrencyCodes()
-                           .subscribe(result =>{
-                             for(var i=0;i<Object.keys(result).length;i++)
-                             {
-                               this.currencies.push(new Currency(result[Object.keys(result)[i]].code,result[Object.keys(result)[i]].name))
-                             }});
+                                .subscribe(result =>{
+                                  for(var i=0;i<Object.keys(result).length;i++)
+                                  {
+                                    this.currencies.push(new Currency(result[Object.keys(result)[i]].code,result[Object.keys(result)[i]].name));
+                                  }
+                                  const code = this.route.snapshot.paramMap.get('currency_code');
+                                  for(var i=0;i<this.currencies.length;i++)
+                                  {
+                                    if(this.currencies[i].code === code)
+                                    {
+                                      this.selected_currency = this.currencies[i];
+                                      this.getCurrencyInfo();
+                                      break;
+                                    }
+                                  }
+                                  });
+      
   }
 
   getCurrencyInfo(): void
@@ -84,4 +100,5 @@ export class CurrencyWikiComponent implements OnInit {
                               }
                             });
   }
+
 }

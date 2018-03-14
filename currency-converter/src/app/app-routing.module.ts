@@ -6,6 +6,7 @@ import { CurrencyWikiComponent } from './currency-wiki/currency-wiki.component';
 const routes: Routes = [
   { path: 'converter', component: ConverterComponentComponent },
   { path: 'wikicurrency', component: CurrencyWikiComponent },
+  { path: 'wikicurrency/:currency_code', component: CurrencyWikiComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
