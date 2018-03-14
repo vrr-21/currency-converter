@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="one column"></div>
+    <div class="eleven columns" id="curr-wiki-div">
+      <span id="currency-wiki-title"><h2>Welcome to Currency.wiki!</h2></span>
+      Here, you can find details about all currencies, including their ISO codes, the frequent and rare bank notes, their major and minor currency names. So on and so forth.
+      <br /><br />
+      So, on you go!
+    </div>
+  </div>
+  <div class="row" id="curr-wiki-choose-div">
+    <div class="one column"></div>
+    <div class="one column" id="curr-wiki-label-div">
+      <label class="u-full-width" for="source-currency">Currency:</label>
+    </div>
+    <div class="ten columns">
+      <select class="u-full-width" id="source-currency" [(ngModel)]="selected_currency" (ngModelChange)="getCurrencyInfo()">
+        <option *ngFor="let currency of currencies" [ngValue]="currency">{{ currency.name }} ({{ currency.code }})</option>
+      </select>
+    </div>
+  </div>
+  <div class="row" *ngIf="selected_currency">
+    <div class="one column"></div>
+    <div class="eleven columns" id="wiki-display">
+      <img src = {{chosen_currency_flag_link}} id = "currency-wiki-flag"/>
+      <h4>{{ selected_currency.name }} : {{ selected_currency.code | uppercase }}</h4>
+      <h6>ISO number: {{ chosen_currency_number }}</h6>
+      <h6>Major currency unit: {{ chosen_currency_major_units }}</h6>
+      <h6>Minor currency unit: {{ chosen_currency_minor_units }}</h6>
+      <h6>Frequently used banknotes: {{ chosen_currency_freq_bn }}</h6>
+      <h6>Rarely used banknotes: {{ chosen_currency_rare_bn }}</h6>
+      <h6>Frequently used coins: {{ chosen_currency_freq_cn }}</h6>
+      <h6>Rarely used coins: {{ chosen_currency_rare_cn }}</h6>
+    </div>
+  </div>
+</div>

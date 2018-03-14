@@ -28,4 +28,16 @@ export class CurrCodeServiceService {
       .map( (data) =>this.currency_data = data)
   }
 
+  loadCurrencyInfo()
+  {
+    /**
+    * This method loads the JSON file using the get function of the http module.
+    * @param None
+    * @return JSON data in type Observable
+    */
+    return this.http
+      .get('../assets/Currency-Info.json')
+      .map(x => x.json() )
+      .map( (data) =>this.currency_data = data)
+  }
 }

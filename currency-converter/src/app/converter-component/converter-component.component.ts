@@ -10,7 +10,7 @@
 */
 import { Component, OnInit } from '@angular/core';
 import { CurrCodeServiceService } from '../curr-code-service.service';
-import { Currency } from '../currency'
+import { Currency } from '../currency';
 import { CurrRatesService } from '../curr-rates.service';
 
 @Component({
