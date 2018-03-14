@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'converter', component: ConverterComponentComponent },
   { path: 'wikicurrency', component: CurrencyWikiComponent },
   { path: 'wikicurrency/:currency_code', component: CurrencyWikiComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+  { path: '', redirectTo: '/converter', pathMatch: 'full' }
 ];
 
 @NgModule({
