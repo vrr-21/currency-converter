@@ -22,6 +22,7 @@
   <div class="row" *ngIf="selected_currency">
     <div class="one column"></div>
     <div class="eleven columns">
+      <img src = {{chosen_currency_flag_link}} id = "currency-wiki-flag"/>
       <h4>{{ selected_currency.name }} : {{ selected_currency.code | uppercase }}</h4>
       <h6>ISO number: {{ chosen_currency_number }}</h6>
       <h6>Major currency unit: {{ chosen_currency_major_units }}</h6>

@@ -17,6 +17,7 @@ export class CurrencyWikiComponent implements OnInit {
   chosen_currency_rare_bn: string;
   chosen_currency_freq_cn: string;
   chosen_currency_rare_cn: string;
+  chosen_currency_flag_link: string;
 
   constructor(private currency_code_service: CurrCodeServiceService)
   {
@@ -53,6 +54,7 @@ export class CurrencyWikiComponent implements OnInit {
                               this.chosen_currency_freq_cn = "";
                               this.chosen_currency_rare_bn = "";
                               this.chosen_currency_rare_cn = "";
+                              this.chosen_currency_flag_link = "http://s.xe.com/themes/xe/images/flags/big/"+this.selected_currency.code.toLowerCase()+".png";
                               this.chosen_currency_number = result[this.selected_currency.code].iso.number;
                               this.chosen_currency_major_units = result[this.selected_currency.code].units.major.name+" ("+result[this.selected_currency.code].units.major.symbol+")";
                               this.chosen_currency_minor_units = result[this.selected_currency.code].units.minor.name+" ("+result[this.selected_currency.code].units.minor.symbol+")";
