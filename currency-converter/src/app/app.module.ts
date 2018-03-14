@@ -11,6 +11,7 @@ import { CurrCodeServiceService } from './curr-code-service.service';
 import { CurrRatesService } from './curr-rates.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { CurrencyWikiComponent } from './currency-wiki/currency-wiki.component';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CurrencyWikiComponent } from './currency-wiki/currency-wiki.component';
     LandingPageComponent,
     ConverterComponentComponent,
     CurrentRatesComponentComponent,
-    CurrencyWikiComponent
+    CurrencyWikiComponent,
+    UnderConstructionComponent
   ],
   imports: [
     BrowserModule,
