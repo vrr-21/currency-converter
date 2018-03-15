@@ -1,3 +1,9 @@
+/**
+* This is a class for the Currency type.
+* @author Varun Rao
+* @version 1.0
+* @since 16-02-2017
+*/
 export class Currency {
   code: string;
   name: string;
@@ -5,5 +11,16 @@ export class Currency {
   {
     this.code=code;
     this.name=name;
+  }
+  getRate(rates: object): number
+  {
+    if(this.code == 'USD')
+    {
+        return 1;
+    }
+    else
+    {
+        return rates[this.code];
+    }
   }
 }

@@ -1,0 +1,31 @@
+#currency-wiki-title
+{
+    text-align: center;
+}
+#curr-wiki-div
+{
+    padding-top: 1px;
+}
+#label-div
+{
+    text-align: right;
+}
+#curr-wiki-choose-div
+{
+    padding-top: 1%;
+}
+#curr-wiki-label-div
+{
+    padding-top: 0.5%;
+    font-size: 16px;
+}
+#currency-wiki-flag
+{
+    float: left;
+}
+#wiki-display
+{
+    box-shadow: 3px 3px 5px 6px;
+    border-radius: 5px;
+    padding: 1em;
+}
