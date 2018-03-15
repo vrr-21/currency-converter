@@ -26,11 +26,11 @@ export class ConverterComponentComponent implements OnInit {
   getCurrencyCodes(): void
   {
       this.currency_code_service.loadCurrencyCodes()
-                           .subscribe(result =>
+                           .subscribe(result =>{
                              for(var i=0;i<Object.keys(result).length;i++)
                              {
                                this.currencies.push(new Currency(result[Object.keys(result)[i]].code,result[Object.keys(result)[i]].name))
-                             });
+                             }});
   }
   convertValue(): void
   {
