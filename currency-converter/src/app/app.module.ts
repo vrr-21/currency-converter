@@ -12,6 +12,7 @@ import { CurrRatesService } from './curr-rates.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { CurrencyWikiComponent } from './currency-wiki/currency-wiki.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
+import { FiveTopComponent } from './five-top/five-top.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UnderConstructionComponent } from './under-construction/under-construct
     ConverterComponentComponent,
     CurrentRatesComponentComponent,
     CurrencyWikiComponent,
-    UnderConstructionComponent
+    UnderConstructionComponent,
+    FiveTopComponent
   ],
   imports: [
     BrowserModule,
