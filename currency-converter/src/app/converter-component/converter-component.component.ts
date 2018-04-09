@@ -64,7 +64,21 @@ export class ConverterComponentComponent implements OnInit {
     * @return None
     */
     this.currency_rate_service.loadCurrencyRates()
-                              .subscribe(result => this.currency_rates = result.rates);
+                              .subscribe(result =>{
+                                this.currency_rates = result.rates;
+                                let full_currency_rates = {};
+                                for(let currency_1 of this.currencies)
+                                {
+                                  let rel_currency_rates = {};
+                                  for(let currency_2 of this.currencies)
+                                  {
+                                    rel_currency_rates[currency_2.code] = (1/currency_1.getRate(this.currency_rates))*currency_2.getRate(this.currency_rates);
+                                  }
+                                  full_currency_rates[currency_1.code] = rel_currency_rates;
+                                }
+                                console.log(full_currency_rates);
+                              });
+    
   }
 
   switchCurrencies(): void
@@ -80,6 +94,7 @@ export class ConverterComponentComponent implements OnInit {
       let inter_curr = this.s_c_curr;
       this.s_c_curr = this.d_c_curr;
       this.d_c_curr = inter_curr;
+      console.log(this.currency_rates);
       this.convertValue();
   }
 

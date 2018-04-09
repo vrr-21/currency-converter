@@ -11,15 +11,15 @@
       <table class="u-full-width">
         <thead>
           <th></th>
-          <th>USD</th>
-          <th>EUR</th>
-          <th>GBP</th>
-          <th>INR</th>
-          <th>CAD</th>
+          <th><img src = "http://s.xe.com/themes/xe/images/flags/big/usd.png"/></th>
+          <th><img src = "http://s.xe.com/themes/xe/images/flags/big/eur.png"/></th>
+          <th><img src = "http://s.xe.com/themes/xe/images/flags/big/gbp.png"/></th>
+          <th><img src = "http://s.xe.com/themes/xe/images/flags/big/inr.png"/></th>
+          <th><img src = "http://s.xe.com/themes/xe/images/flags/big/cad.png"/></th>
         </thead>
         <tbody>
           <tr *ngFor = "let index_currency of chosen_currencies">
-              <td class="index-col">{{index_currency.code}}</td>
+              <td class="index-col"><img src = "http://s.xe.com/themes/xe/images/flags/big/{{index_currency.code | lowercase}}.png"/></td>
               <td *ngFor = "let currency of chosen_currencies"> {{ getRate(index_currency, currency) |  number : '1.2-3' }} </td>
           </tr>
         </tbody>
